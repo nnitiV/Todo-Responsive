@@ -11,13 +11,9 @@
             <div class="mb-3 text-center">
                 <label for="NewTask" class="form-label text-uppercase d-block fw-bold text-body-secondary"><h2>Task Title</h2></label>
                 <select class="form-select m-auto" aria-label="Default select example" id="SelectedCategoryId" name="SelectedCategoryId">
-                    @if (Model.MyCategories.Count == 0)
-                    {
-                        <option selected disabled>No Categories Available</option>
-                    }
-                    else
-                    {
                         <option value="0">None</option>
+                    @if (Model.MyCategories.Count > 0)
+                    {
                         @foreach (var category in Model.MyCategories)
                         {
                             <option value="@category.Id">@category.Name</option>

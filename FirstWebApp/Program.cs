@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlite("Data Source=app.db");
 });
 
 builder.Services.AddIdentity<User, IdentityRole>(options =>
@@ -58,10 +58,49 @@ app.UseRouting();
 app.UseSession();
 
 app.UseAuthorization();
-
+app.UseAuthorization();
 app.MapStaticAssets();
 
 app.MapRazorPages()
    .WithStaticAssets();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var userManager = services.GetRequiredService<UserManager<User>>();
+        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+        if (!await roleManager.RoleExistsAsync("Admin"))
+        {
+            await roleManager.CreateAsync(new IdentityRole("Admin"));
+        }
+
+        var adminEmail = "admin@gmail.com";
+        var adminUser = await userManager.FindByEmailAsync(adminEmail);
+
+        if (adminUser == null)
+        {
+            adminUser = new User
+            {
+                UserName = "admin", 
+                Email = adminEmail,
+                EmailConfirmed = true 
+            };
+
+            var result = await userManager.CreateAsync(adminUser, "Admin@123");
+
+            if (result.Succeeded)
+            {
+                await userManager.AddToRoleAsync(adminUser, "Admin");
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error seeding data: {ex.Message}");
+    }
+}
 
 app.Run();
