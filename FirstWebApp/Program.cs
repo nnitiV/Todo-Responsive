@@ -63,15 +63,21 @@ app.MapStaticAssets();
 
 app.MapRazorPages()
    .WithStaticAssets();
-
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     try
     {
+        var context = services.GetRequiredService<AppDbContext>();
+
+        // 1. CRITICAL: Create tables if they don't exist
+        // This fixes "no such table: AspNetUsers"
+        context.Database.Migrate();
+
         var userManager = services.GetRequiredService<UserManager<User>>();
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
+        // 2. NOW it is safe to check for roles
         if (!await roleManager.RoleExistsAsync("Admin"))
         {
             await roleManager.CreateAsync(new IdentityRole("Admin"));
@@ -84,9 +90,9 @@ using (var scope = app.Services.CreateScope())
         {
             adminUser = new User
             {
-                UserName = "admin", 
+                UserName = "admin",
                 Email = adminEmail,
-                EmailConfirmed = true 
+                EmailConfirmed = true
             };
 
             var result = await userManager.CreateAsync(adminUser, "Admin@123");
@@ -94,6 +100,7 @@ using (var scope = app.Services.CreateScope())
             if (result.Succeeded)
             {
                 await userManager.AddToRoleAsync(adminUser, "Admin");
+                Console.WriteLine("Admin user seeded successfully.");
             }
         }
     }
@@ -102,5 +109,4 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine($"Error seeding data: {ex.Message}");
     }
 }
-
 app.Run();
