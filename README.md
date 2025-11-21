@@ -36,14 +36,17 @@ This project goes beyond a simple "ToDo list" by implementing enterprise-level f
 
 ## 📸 Screenshots
 
-| Tasks Demo | Admin Panel |
+| Landing Page | User Profile |
+|:---:|:---:|
+| ![InitialPage](https://github.com/user-attachments/assets/d1bbed11-079e-45ff-b3cd-17d1a02fa136) | ![UserProfileView](https://github.com/user-attachments/assets/a52590e6-e9d3-4cfa-bae5-5785d88cd9d9) |
+
+| Task Management Demo | Admin Dashboard |
 |:---:|:---:|
 | ![TasksDemo](https://github.com/user-attachments/assets/c7d36f40-a75f-4b71-a177-4cbf71834f5c) | ![AdminDashboard](https://github.com/user-attachments/assets/08ba40f0-8d28-4f32-bbd0-ca1288c702ea) |
 
-| User Profile | Mobile / Light Mode |
-|:---:|:---:|
-| ![UserProfileView](https://github.com/user-attachments/assets/a52590e6-e9d3-4cfa-bae5-5785d88cd9d9) | ![DarkAndWhiteMode](https://github.com/user-attachments/assets/3bd6f59a-f412-4b7d-ba46-997ab04adb98) |
-
+| Mobile / Dark Mode |
+|:---:|
+| ![DarkAndWhiteMode](https://github.com/user-attachments/assets/3bd6f59a-f412-4b7d-ba46-997ab04adb98) |
 ---
 
 ## 💻 Tech Stack
