@@ -36,7 +36,7 @@ This project goes beyond a simple "ToDo list" by implementing enterprise-level f
 
 ## 📸 Screenshots
 
-| Dashboard (Dark Mode) | Admin Panel |
+| Tasks Demo | Admin Panel |
 |:---:|:---:|
 | ![TasksDemo](https://github.com/user-attachments/assets/c7d36f40-a75f-4b71-a177-4cbf71834f5c) | ![AdminDashboard](https://github.com/user-attachments/assets/08ba40f0-8d28-4f32-bbd0-ca1288c702ea) |
 
