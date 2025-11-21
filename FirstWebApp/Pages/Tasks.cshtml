@@ -61,7 +61,7 @@
     {
         @foreach (TaskItem task in @Model.MyTasks)
         {
-            <li class="col-12 col-md-6 mx-auto mb-3 p-2 border rounded-2 border-body task-item">
+            <li class="col-12 col-md-6 mx-auto mb-3 p-2 border rounded-2 border-body task-item shadow-sm">
                 <form method="post" class="align-content-center d-flex flex-column form">
                     <input type="hidden" name="Id" id="Id" value="@task.Id" />
                     <div>

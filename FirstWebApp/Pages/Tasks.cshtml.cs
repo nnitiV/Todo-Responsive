@@ -10,7 +10,7 @@ using TaskItem = FirstWebApp.Models.TaskItem;
 
 namespace FirstWebApp.Pages
 {
-    
+    [Authorize]
     public class TasksModel : PageModel
     {
         private readonly AppDbContext _context;

@@ -36,7 +36,7 @@
     </script>
 </head>
 <body class="pb-2">
-    <header class="navbar navbar-expand-lg bg-body-tertiary pe-5 ps-5">
+    <header class="navbar navbar-expand-lg bg-body-tertiary pe-5 ps-5 shadow-sm">
         <div class="container-fluid">
             <div class="d-flex align-items-center">
                 <img src="/tabicon.png" class="me-1" style="width: 1.5rem; height: 1.5rem;" />
@@ -61,26 +61,35 @@
                                 <a href="~/Admin" class="text-reset link-offset-2 link-underline link-underline-opacity-0  text-danger">Manage tasks</a>
                             </li>
                         }
-                        <li class="nav-item">
-                            <div class="dropdown-center">
-                                <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                    @if (!string.IsNullOrEmpty(currentUser.ProfilePictureUrl))
-                                    {
-                                        <img src="@currentUser.ProfilePictureUrl" style="width: calc(1.5vw + 2rem); height: calc(1.5vw + 2rem);" class="bg-info rounded-circle object-fit-cover"
-                                             alt="Profile Picture" />
+                        <li class="nav-item dropdown position-relative">
+                            <a class="nav-link d-flex align-items-center justify-content-center"
+                               href="#"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
 
-                                    }
-                                    else
-                                    {
-                                        <img src="https://i.pinimg.com/474x/24/99/03/249903173ee16b3346ba320a24e56a8b.jpg"
-                                             style="width: calc(1.5vw + 2rem); height: calc(1.5vw + 2rem);" class="bg-info rounded-circle object-fit-cover" />
-                                    }
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="">
-                                    <li><a class="dropdown-item" href="~/Profile">@currentUser?.UserName</a></li>
-                                    <li><a class="dropdown-item" href="~/Logout">Logout</a></li>
-                                </ul>
-                            </div>
+                                @if (!string.IsNullOrEmpty(currentUser.ProfilePictureUrl))
+                                {
+                                    <img src="@currentUser.ProfilePictureUrl"
+                                         style="width: 45px; height: 45px; object-fit: cover;"
+                                         class="rounded-circle border bg-info"
+                                         alt="Profile" />
+                                }
+                                else
+                                {
+                                    <img src="https://i.pinimg.com/474x/24/99/03/249903173ee16b3346ba320a24e56a8b.jpg"
+                                         style="width: 45px; height: 45px; object-fit: cover;"
+                                         class="rounded-circle border bg-info"
+                                         alt="Profile" />
+                                }
+                            </a>
+
+                            <ul class="dropdown-menu position-absolute text-center text-lg-start end-0 start-50 translate-middle-x">
+                                <li><h2 class="dropdown-header">@currentUser?.UserName</h2></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="~/Profile">My Profile</a></li>
+                                <li><a class="dropdown-item text-danger" href="~/Logout">Logout</a></li>
+                            </ul>
                         </li>
                     }
                     else
