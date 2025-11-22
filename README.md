@@ -12,6 +12,37 @@ This project goes beyond a simple "ToDo list" by implementing enterprise-level f
 🔗 **[Live Demo: View Website](https://todo-app-responsive-in-c-net.onrender.com/)**
 
 ---
+## 🚀 Getting Started
+
+### Prerequisites
+* [.NET 9.0 SDK](https://dotnet.microsoft.com/download)
+* MySQL Server (Optional - can switch to SQLite for local dev)
+
+### Installation
+
+1.  **Clone the repo**
+    ```bash
+    git clone [https://github.com/YOUR_USERNAME/Todo-Responsive.git](https://github.com/YOUR_USERNAME/Todo-Responsive.git)
+    ```
+2.  **Navigate to the project**
+    ```bash
+    cd Todo-Responsive/FirstWebApp
+    ```
+3.  **Restore dependencies**
+    ```bash
+    dotnet restore
+    ```
+4.  **Database Setup**
+    The project is configured to auto-migrate on startup. Just ensure your connection string in `appsettings.json` is correct.
+    ```bash
+    dotnet ef database update
+    ```
+5.  **Run the app**
+    ```bash
+    dotnet run
+    ```
+
+---
 
 ### 🔑 Default Admin Login
 The application seeds an Admin user on the first run. You can use these credentials to test the Admin Dashboard features:
@@ -63,38 +94,6 @@ The application seeds an Admin user on the first run. You can use these credenti
 * **ORM:** Entity Framework Core
 * **Frontend:** HTML5, CSS3, Bootstrap 5.3, jQuery
 * **Deployment:** Docker & Render
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-* [.NET 9.0 SDK](https://dotnet.microsoft.com/download)
-* MySQL Server (Optional - can switch to SQLite for local dev)
-
-### Installation
-
-1.  **Clone the repo**
-    ```bash
-    git clone [https://github.com/YOUR_USERNAME/Todo-Responsive.git](https://github.com/YOUR_USERNAME/Todo-Responsive.git)
-    ```
-2.  **Navigate to the project**
-    ```bash
-    cd Todo-Responsive/FirstWebApp
-    ```
-3.  **Restore dependencies**
-    ```bash
-    dotnet restore
-    ```
-4.  **Database Setup**
-    The project is configured to auto-migrate on startup. Just ensure your connection string in `appsettings.json` is correct.
-    ```bash
-    dotnet ef database update
-    ```
-5.  **Run the app**
-    ```bash
-    dotnet run
-    ```
 
 ---
 
