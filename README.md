@@ -13,6 +13,12 @@ This project goes beyond a simple "ToDo list" by implementing enterprise-level f
 
 ---
 
+### 🔑 Default Admin Login
+The application seeds an Admin user on the first run. You can use these credentials to test the Admin Dashboard features:
+
+* **Email:** `admin@gmail.com`
+* **Password:** `Admin@123`
+
 ## ✨ Key Features
 
 ### 🔐 Security & Identity
@@ -89,12 +95,6 @@ This project goes beyond a simple "ToDo list" by implementing enterprise-level f
     ```bash
     dotnet run
     ```
-
-### 🔑 Default Admin Login
-The application seeds an Admin user on the first run. You can use these credentials to test the Admin Dashboard features:
-
-* **Email:** `admin@gmail.com`
-* **Password:** `Admin@123`
 
 ---
 
